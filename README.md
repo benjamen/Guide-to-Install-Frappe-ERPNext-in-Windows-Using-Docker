@@ -4,10 +4,12 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
 
 ### Pre-requisites 
 
-      Docker Desktop
+      Docker Desktop(Running)
       git
-      Wnidows 11 
+      Wnidows 11 (or 10)
       VS Code
+      Redis - this can be tricky too if anything fails
+      MariaDB this can be tricky too if anything fails (you might need to delete databases via Docker if steps fail)
     
 
 ### STEP 1 Check Docker version
@@ -79,6 +81,7 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
    MariaDB root password: 123
     
     bench new-site d-code.localhost --no-mariadb-socket 
+    Remember MariaDB root password: 123 (make sure you enter this else half this command works and then you have delete the site and database)
     
     
 ### STEP 9 Set bench developer mode on the new site
