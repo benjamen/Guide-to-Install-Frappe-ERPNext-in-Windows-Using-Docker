@@ -11,6 +11,9 @@ These have been forked and updated based on my Windows 10 set up and now works w
       VS Code
       Redis - this can be tricky too if anything fails
       MariaDB this can be tricky too if anything fails (you might need to delete databases via Docker if steps fail)
+      	mysql -u root -p 
+      	SHOW DATABASES; 
+       	DROP DATABASE <db_name>;
       sudo apt update && sudo apt install supervisor
     
 
