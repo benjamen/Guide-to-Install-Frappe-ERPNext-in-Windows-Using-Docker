@@ -88,7 +88,9 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
 ### STEP 9 Set bench developer mode on the new site
     
     bench --site d-code.localhost set-config developer_mode 1
-    bench --site d-code.localhost clear-cache   
+    bench --site d-code.localhost clear-cache
+    sudo service supervisor stop
+    sudo service supervisor start
     
     
 ### STEP 10 Install ERPNext
@@ -101,6 +103,8 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
     
 ### STEP 11 Start Frappe bench 
     
+    sudo service supervisor stop
+    sudo service supervisor start
     bench start
     
   You can now login with user Administrator and the password you choose when creating the site. Your website will now be accessible at location d-code.localhost:8000
