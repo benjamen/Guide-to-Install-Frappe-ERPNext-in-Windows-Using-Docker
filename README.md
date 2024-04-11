@@ -272,5 +272,14 @@ bench start
 	bench --site {yoururlname}.localhost clear-website-cache
 	bench start
 
+ $ bench doctor
+$ bench update --requirements
+$ bench setup socketio
+$ bench setup redis
+$ bench retry-upgrade
+$ sudo supervisorctl restart
+$ sudo service nginx restart
+ 
+
  https://codewithkarani.com/2024/01/28/resolving-frappe-application-startup-issue-no-module-named-redis-commands/
    
