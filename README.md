@@ -10,6 +10,7 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
       VS Code
       Redis - this can be tricky too if anything fails
       MariaDB this can be tricky too if anything fails (you might need to delete databases via Docker if steps fail)
+      sudo apt update && sudo apt install supervisor
     
 
 ### STEP 1 Check Docker version
