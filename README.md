@@ -10,10 +10,17 @@ These have been forked and updated based on my Windows 10 set up and now works w
       Wnidows 11 (or 10)
       VS Code
       Redis - this can be tricky too if anything fails
+      curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+	echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee 	/etc/apt/sources.list.d/redis.list
+
+	sudo apt-get update
+	sudo apt-get install redis
       MariaDB this can be tricky too if anything fails (you might need to delete databases via Docker if steps fail)
       	mysql -u root -p 
       	SHOW DATABASES; 
        	DROP DATABASE <db_name>;
+	
     
 
 ### STEP 1 Check Docker version
@@ -86,7 +93,12 @@ These have been forked and updated based on my Windows 10 set up and now works w
    MariaDB root password: 123
     
     bench new-site {yoururlname}.localhost --no-mariadb-socket 
+    
     Remember MariaDB root password: 123 (make sure you enter this else half this command works and then you have delete the site and database)
+
+    Note: I initially got this error: "pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] 		Connection refused)")"
+    sudo ps -aux | grep "mysqld_safe"
+    
     
     
 ### STEP 9 Set bench developer mode on the new site
@@ -96,10 +108,10 @@ These have been forked and updated based on my Windows 10 set up and now works w
     sudo service supervisor stop
     sudo nano /etc/supervisor/supervisord.conf
 
-(Add these lines under [unix_http_server])
+	(Add these lines under [unix_http_server])
 
-chmod=0760
-chown=frappe:frappe
+	chmod=0760
+	chown=frappe:frappe
     sudo service supervisor start
     
     
