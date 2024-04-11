@@ -14,7 +14,6 @@ These have been forked and updated based on my Windows 10 set up and now works w
       	mysql -u root -p 
       	SHOW DATABASES; 
        	DROP DATABASE <db_name>;
-      sudo apt update && sudo apt install supervisor
     
 
 ### STEP 1 Check Docker version
@@ -62,6 +61,7 @@ These have been forked and updated based on my Windows 10 set up and now works w
     
     bench init --skip-redis-config-generation --frappe-branch version-15 frappe-bench
     cd frappe-bench
+    sudo apt update && sudo apt install supervisor
     
     
 ### STEP 7 Setup hosts
