@@ -117,6 +117,6 @@ chown=frappe:frappe
     sudo service supervisor start
     bench start
     
-  You can now login with user Administrator and the password you choose when creating the site. Your website will now be accessible at location {yoururlname}.localhost:8000
+  You can now login with username (not email) Administrator and the password you choose when creating the site. Your website will now be accessible at location {yoururlname}.localhost:8000
     
    
