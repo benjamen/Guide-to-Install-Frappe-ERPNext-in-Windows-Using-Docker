@@ -261,6 +261,11 @@ $ bench --site demo.com install-app non_profit
 	
 ### STEP 16 Restart and Migrate Apps
 
+### Errors with redis? Try:
+./env/bin/pip3 install --upgrade redis
+then:
+bench start
+
 	bench use {yoururlname}.localhost
 	bench migrate
 	sudo service supervisor start
