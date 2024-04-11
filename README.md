@@ -271,4 +271,6 @@ bench start
 	sudo service supervisor start
 	bench --site {yoururlname}.localhost clear-website-cache
 	bench start
+
+ https://codewithkarani.com/2024/01/28/resolving-frappe-application-startup-issue-no-module-named-redis-commands/
    
