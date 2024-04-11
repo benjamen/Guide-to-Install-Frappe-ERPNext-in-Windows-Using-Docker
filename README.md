@@ -262,9 +262,9 @@ $ bench --site demo.com install-app non_profit
 ### STEP 16 Restart and Migrate Apps
 
 ### Errors with redis? Try:
-./env/bin/pip3 install --upgrade redis
-then:
-bench start
+	./env/bin/pip3 install --upgrade redis
+	then:
+	bench start
 
 	bench use {yoururlname}.localhost
 	bench migrate
@@ -272,13 +272,13 @@ bench start
 	bench --site {yoururlname}.localhost clear-website-cache
 	bench start
 
- $ bench doctor
-$ bench update --requirements
-$ bench setup socketio
-$ bench setup redis
-$ bench retry-upgrade
-$ sudo supervisorctl restart
-$ sudo service nginx restart
+ 	bench doctor
+ 	bench update --requirements
+	bench setup socketio
+	bench setup redis
+	bench retry-upgrade
+	sudo supervisorctl restart
+	sudo service nginx restart
  
 
  https://codewithkarani.com/2024/01/28/resolving-frappe-application-startup-issue-no-module-named-redis-commands/
