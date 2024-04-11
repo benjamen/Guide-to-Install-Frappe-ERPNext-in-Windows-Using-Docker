@@ -81,32 +81,42 @@ A complete Guide to Install Frappe Bench in Windows 11 Using Docker and install 
    sitename MUST end with .localhost for trying deployments locally.
    MariaDB root password: 123
     
-    bench new-site d-code.localhost --no-mariadb-socket 
+    bench new-site {yoururlname}.localhost --no-mariadb-socket 
     Remember MariaDB root password: 123 (make sure you enter this else half this command works and then you have delete the site and database)
     
     
 ### STEP 9 Set bench developer mode on the new site
     
-    bench --site d-code.localhost set-config developer_mode 1
-    bench --site d-code.localhost clear-cache
+    bench --site {yoururlname}.localhost set-config developer_mode 1
+    bench --site {yoururlname}.localhost clear-cache
     sudo service supervisor stop
+    sudo nano /etc/supervisor/supervisord.conf
+
+(Add these lines under [unix_http_server])
+
+chmod=0760
+chown=frappe:frappe
     sudo service supervisor start
     
     
 ### STEP 10 Install ERPNext
     
     bench get-app --branch version-14 --resolve-deps erpnext
-    bench --site d-code.localhost install-app erpnext
+    bench --site {yoururlname}.localhost install-app erpnext
     
+ ### STEP 11 Go to Docker frappe_docker_devcontainer-frappe-1
     
+    stop container
+    go to files -> etc/hosts
+    add {yoururlname}.localhost
+    start container
     
-    
-### STEP 11 Start Frappe bench 
+### STEP 12 Start Frappe bench 
     
     sudo service supervisor stop
     sudo service supervisor start
     bench start
     
-  You can now login with user Administrator and the password you choose when creating the site. Your website will now be accessible at location d-code.localhost:8000
+  You can now login with user Administrator and the password you choose when creating the site. Your website will now be accessible at location {yoururlname}.localhost:8000
     
    
