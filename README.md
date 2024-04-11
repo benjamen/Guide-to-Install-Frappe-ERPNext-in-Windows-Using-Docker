@@ -152,6 +152,5 @@ chown=frappe:frappe
 	bench migrate
 	sudo service supervisor start
 	bench --site {yoururlname}.localhost clear-website-cache
-
-     	bench start
+	bench start
    
