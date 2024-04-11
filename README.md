@@ -54,10 +54,10 @@ These have been forked and updated based on my Windows 10 set up and now works w
    Node v14 and v10 are installed. Check with nvm ls. Node v14 is used by default.
                 
     
-### STEP 6 Initilase frappe bench with frappe version 14 and Switch directory
+### STEP 6 Initilase frappe bench with frappe version 15 and Switch directory
 
     
-    bench init --skip-redis-config-generation --frappe-branch version-14 frappe-bench
+    bench init --skip-redis-config-generation --frappe-branch version-15 frappe-bench
     cd frappe-bench
     
     
