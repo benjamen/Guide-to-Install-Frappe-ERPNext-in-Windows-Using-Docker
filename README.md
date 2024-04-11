@@ -103,6 +103,7 @@ chown=frappe:frappe
 ### STEP 10 Install ERPNext
     
     bench get-app --branch version-14 --resolve-deps erpnext
+    bnech get-app payments (required for this verison)
     bench --site {yoururlname}.localhost install-app erpnext
     
  ### STEP 11 Go to Docker frappe_docker_devcontainer-frappe-1
@@ -118,6 +119,39 @@ chown=frappe:frappe
     sudo service supervisor start
     bench start
     
-  You can now login with username (not email) Administrator and the password you choose when creating the site. Your website will now be accessible at location {yoururlname}.localhost:8000
+ ### STEP 13 Navigate to and Log In
     
+    You can now login with username (not email): Administrator 
+    and the password you choose when creating the site. 
+    Your website will now be accessible at location {yoururlname}.localhost:8000
+
+  ### STEP 14 Install other Frappe App
+    
+    Make sure bench is runing in other terminal - running your site and open a new terminal and cd in into the frappe-bench folder:
+    	bench get-app chat
+
+	bench get-app https://github.com/libracore/woocommerceconnector.git	
+
+	bench get-app healthcare
+
+	bench get-app hospitality
+
+ 	bench get-app education
+
+	bench --site {yoururlname}.localhost install-app chat
+
+	bench --site {yoururlname}.localhost install-app woocommerceconnector
+
+	bench --site {yoururlname}.localhost install-app healthcare
+
+	bench --site {yoururlname}.localhost install-app hospitality
+
+ 	bench --site {yoururlname}.localhost install-app education
+
+	bench use {yoururlname}.localhost
+	bench migrate
+	sudo service supervisor start
+	bench --site {yoururlname}.localhost clear-website-cache
+
+     	bench start
    
