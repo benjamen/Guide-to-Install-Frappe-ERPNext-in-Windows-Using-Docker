@@ -117,7 +117,7 @@ These have been forked and updated based on my Windows 10 set up and now works w
     
 ### STEP 10 Install ERPNext
     
-    bench get-app --branch version-14 --resolve-deps erpnext
+    bench get-app --branch version-15 --resolve-deps erpnext
     bnech get-app payments (required for this verison)
     bench --site {yoururlname}.localhost install-app erpnext
     
