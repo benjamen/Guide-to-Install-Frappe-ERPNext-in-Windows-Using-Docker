@@ -9,6 +9,7 @@ These have been forked and updated based on my Windows 10 set up and now works w
       git
       Wnidows 11 (or 10)
       VS Code
+      timedatectl set-timezone “Africa/Nairobi”
       npm install -g yarn
       Redis - this can be tricky too if anything fails
 	sudo apt-get update
