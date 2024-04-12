@@ -9,23 +9,38 @@ These have been forked and updated based on my Windows 10 set up and now works w
       git
       Wnidows 11 (or 10)
       VS Code
+      npm install -g yarn
       Redis - this can be tricky too if anything fails
-      curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
-
-	echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee 	/etc/apt/sources.list.d/redis.list
-
 	sudo apt-get update
 	sudo apt-get install redis
-      MariaDB this can be tricky too if anything fails (you might need to delete databases via Docker if steps fail)
-      	mysql -u root -p 
-      	SHOW DATABASES; 
-       	DROP DATABASE <db_name>;
-	
-    
+      MariaDB this can be tricky too if anything fails
+      	you might need to delete databases via Docker if steps fail
+	      	mysql -u root -p 
+	      	SHOW DATABASES; 
+	       	DROP DATABASE <db_name>;
 
 ### STEP 1 Check Docker version
     docker version
     git version
+
+  	Create an apps JSON
+	In this create a JSON file with the apps you want to install
+
+	nano apps.json
+	paste the JSON with the apps you want for example:
+
+	[
+	  {
+	    "url": "https://github.com/frappe/erpnext",
+	    "branch": "version-15"
+	  },
+	  {
+	    "url": "https://github.com/frappe/hrms",
+	    "branch": "version-15"
+	  }
+	]
+	export APPS_JSON_BASE64=$(base64 -w 0 ./apps.json)
+    
 
 ### STEP 2  Clone frappe_docker and move to frappe_docker folder
 
@@ -96,37 +111,33 @@ These have been forked and updated based on my Windows 10 set up and now works w
     
     Remember MariaDB root password: 123 (make sure you enter this else half this command works and then you have delete the site and database)
 
-    Note: I initially got this error: "pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] 		Connection refused)")"
-    sudo ps -aux | grep "mysqld_safe"
-    
-    
     
 ### STEP 9 Set bench developer mode on the new site
     
     bench --site {yoururlname}.localhost set-config developer_mode 1
     bench --site {yoururlname}.localhost clear-cache
-    sudo service supervisor stop
-    sudo nano /etc/supervisor/supervisord.conf
+
+    Only if access issue:
+ 	sudo service supervisor stop
+   	 sudo nano /etc/supervisor/supervisord.conf
 
 	(Add these lines under [unix_http_server])
 
 	chmod=0760
 	chown=frappe:frappe
-    sudo service supervisor start
+   	 sudo service supervisor start
     
     
 ### STEP 10 Install ERPNext
     
     bench get-app --branch version-15 --resolve-deps erpnext
-    bnech get-app payments (required for this verison)
     bench --site {yoururlname}.localhost install-app erpnext
     
- ### STEP 11 Go to Docker frappe_docker_devcontainer-frappe-1
-    
-    stop container
-    go to files -> etc/hosts
-    add {yoururlname}.localhost
-    start container
+    Only if access error:
+	    stop container
+	    go to files -> etc/hosts
+	    add {yoururlname}.localhost
+	    start container
     
 ### STEP 12 Start Frappe bench 
     
@@ -141,6 +152,8 @@ These have been forked and updated based on my Windows 10 set up and now works w
     Your website will now be accessible at location {yoururlname}.localhost:8000
 
   ### STEP 14 Install other Frappe Apps (Optional)
+
+  	sudo service supervisor stop	
     
     Make sure bench is runing in other terminal - running your site and open a new terminal and cd in into the frappe-bench folder:
     	#chat
@@ -164,14 +177,17 @@ These have been forked and updated based on my Windows 10 set up and now works w
  	bench get-app lending
 	bench --site {yoururlname}.localhost install-app lending
 
- $ bench get-app agriculture
-$ bench --site demo.com install-app agriculture
+ 	bench get-app agriculture
+	bench --site {yoururlname}.localhost install-app agriculture
 
-$ bench get-app hrms
-$ bench --site sitename install-app hrms
+	bench get-app hrms
+	bench --site {yoururlname}.localhost install-app hrms
 
-$ bench get-app non_profit
-$ bench --site demo.com install-app non_profit
+	bench get-app non_profit
+	bench --site {yoururlname}.localhost install-app non_profit
+
+ 	sudo service supervisor start
+    	bench start
 
   ### STEP 15 Install other Frappe sites (Optional)
 
