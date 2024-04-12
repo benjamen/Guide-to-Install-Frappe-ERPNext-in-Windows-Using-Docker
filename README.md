@@ -255,7 +255,7 @@ These have been forked and updated based on my Windows 10 set up and now works w
 
 	Install Bench.
 	Install Frappe Builder app:
-	$ bench get-app builder
+	$ bench get-app builder --resolve-deps
 	Create a site with the builder app:
 	$ bench --site sitename.localhost install-app builder
 	Open the site in the browser:
