@@ -85,6 +85,10 @@ These have been forked and updated based on my Windows 10 set up and now works w
     bench init --skip-redis-config-generation --frappe-branch version-15 frappe-bench
     cd frappe-bench
     sudo apt update && sudo apt install supervisor
+    npm install -g yarn
+
+	sudo apt-get update
+	sudo apt-get install redis
     
     
 ### STEP 7 Setup hosts
