@@ -123,9 +123,9 @@ These have been forked and updated based on my Windows 10 set up and now works w
     bench --site {yoururlname}.localhost set-config developer_mode 1
     bench --site {yoururlname}.localhost clear-cache
 
-bench --site home.localhost set-config developer_mode 1
-bench --site home.localhost set-config maintenance_mode 0
-bench --site home.localhost clear-cache
+	bench --site home.localhost set-config developer_mode 1
+	bench --site home.localhost set-config maintenance_mode 0
+	bench --site home.localhost clear-cache
 
     Only if access issue:
  	sudo service supervisor stop
