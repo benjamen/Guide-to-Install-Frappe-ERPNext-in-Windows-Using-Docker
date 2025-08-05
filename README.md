@@ -127,6 +127,8 @@ These have been forked and updated based on my Windows 10 set up and now works w
 	bench --site home.localhost set-config maintenance_mode 0
 	bench --site home.localhost clear-cache
 
+ 	bench --site your-site-name enable-scheduler - FOR EMAIL TO WORK
+
     Only if access issue:
  	sudo service supervisor stop
    	 sudo nano /etc/supervisor/supervisord.conf
